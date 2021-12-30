@@ -1,0 +1,64 @@
+<mat-card>
+    <form [formGroup]="formDetails" (ngSubmit)="onSubmit()">
+      <div>
+        <mat-form-field appearance="fill">
+        <mat-label for="firstName">First Name</mat-label>
+        <input matInput type="text" id="firstName" formControlName="firstName">
+       </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+        <mat-label for="lastName">Last Name</mat-label>
+        <input matInput type="text" id="lastName" formControlName="lastName">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+        <mat-label for="phoneNumber">Mobile Number</mat-label>
+        <input matInput type="text" id="phoneNumber" formControlName="phoneNumber">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="email" id="emailAddress" formControlName="emailAddress">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+        <mat-label for="address">Address</mat-label>
+        <input matInput type="text" id="address" (click)="viewGoogleMap()" [(ngModel)]="address" formControlName="address">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+        <mat-label for="country">Country</mat-label>
+        <mat-select id="country" formControlName="country" (click)="getCountry()">
+          <mat-option>Select</mat-option>
+          <mat-option *ngFor="let country of countryName" [value]="country.country_name">{{country.country_name}}</mat-option>
+        </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+        <mat-label for="state">State</mat-label>
+        <mat-select id="state" formControlName="state" (click)="getState()">
+          <mat-option>Select</mat-option>
+          <mat-option *ngFor="let state of stateName" [value]="state.state_name">{{state.state_name}}</mat-option>
+        </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+        <mat-label for="city">City</mat-label>
+        <mat-select id="city" formControlName="city" (click)="getCity()">
+          <mat-option>Select</mat-option>
+          <mat-option *ngFor="let city of cityName" [value]="city.city_name">{{city.city_name}}</mat-option>
+        </mat-select>
+        </mat-form-field> 
+      </div>
+      <div>
+        <button mat-raised-button>Submit</button>
+      </div>
+    </form>
+  </mat-card>
